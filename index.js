@@ -7,6 +7,7 @@ for (var i = 0; i < numberOfDrumButtons; i++) {
     var buttunInnerHTML = this.innerHTML;
 
     makeSound(buttunInnerHTML);
+    buttunAnimation(buttunInnerHTML);
   });
 }
 
@@ -14,6 +15,7 @@ for (var i = 0; i < numberOfDrumButtons; i++) {
 
 document.addEventListener("keydown", function (event) {
   makeSound(event.key);
+  buttunAnimation(event.key);
 });
 
 //Воспроизводим звук в соответствии с нажатием клавиши.
@@ -58,4 +60,13 @@ function makeSound(key) {
     default:
       console.log(buttunInnerHTML);
   }
+}
+
+function buttunAnimation(currentKey) {
+  var activeButton = document.querySelector("." + currentKey);
+  activeButton.classList.add("pressed");
+
+  setTimeout(function () {
+    activeButton.classList.remove("pressed");
+  }, 100);
 }
