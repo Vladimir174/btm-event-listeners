@@ -58,7 +58,7 @@ function makeSound(key) {
       break;
 
     default:
-      console.log(buttunInnerHTML);
+      console.log(key);
   }
 }
 
